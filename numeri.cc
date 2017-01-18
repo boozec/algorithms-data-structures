@@ -33,11 +33,11 @@ int main(void)
 		file.get(l);
 		num = l - '0';
 		if(seq == 0) {
-			if(num == a) seq = 1;
+			if(num == a) seq++;
 		} else if(seq == 1) {
-			if(num == b) seq = 2;
+			if(num == b) seq++;
 		} else if(seq == 2) {
-			if(num == c) seq = 3;
+			if(num == c) seq++;
 		}
 			
 		if(seq == 3) { tot++; seq = 0; }	

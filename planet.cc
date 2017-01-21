@@ -63,7 +63,7 @@ int main()
 		//cout << i << " " << giorno[i] << endl;
 	}
 	
-	cout << oraVuota << endl;
+	out << oraVuota << endl;
 		
 	in.close();
 	out.close();

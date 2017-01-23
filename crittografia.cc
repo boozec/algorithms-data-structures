@@ -1,5 +1,8 @@
 #include <iostream>
 #include <string>
+#include <sstream>
+#include <fstream>
+#include <cstring>
 
 using namespace std;
 
@@ -10,10 +13,31 @@ char consonantiMax[] = {'B','C','D','F','G','H','J','K','L','M','N','P','Q','R',
 
 int main()
 {
-	char test[] = "IT Archimede Catania";
+	ifstream in;
+	ofstream out;
 	
-	converti(test, sizeof test);
-
+	in.open("input.txt");
+	out.open("output.txt");
+	
+	string num;
+	int N;
+	string ca;
+	
+	getline(in, num);
+	istringstream(num) >> N;
+	
+	for(int i = 0; i < N; i++){
+		getline(in, ca);
+		char *c = new char[ca.length() + 1];
+		strcpy(c, ca.c_str());
+		converti(c, ca.length() + 1);
+		out << c << endl;
+		delete[] c;
+	}
+	
+	in.close();
+	out.close();
+	
 	return 0;
 }
 
@@ -59,6 +83,4 @@ void converti(char *str, int size)
 		if(cpres == true) str[i]+=s;
 		cpres = false;
 	}
-	
-	cout << str << endl;	
 }

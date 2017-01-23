@@ -19,12 +19,11 @@ int main()
 	in.open("input.txt");
 	out.open("output.txt");
 	
-	string num;
 	int N;
 	string ca;
 	
-	getline(in, num);
-	istringstream(num) >> N;
+	getline(in, ca);
+	istringstream(ca) >> N;
 	
 	for(int i = 0; i < N; i++){
 		getline(in, ca);

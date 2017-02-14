@@ -88,6 +88,3 @@ void Ascensore::Doors(void)
 		doors = true;
 	}
 }
-
-    Contact GitHub API Training Shop Blog About 
-

@@ -2,10 +2,12 @@
 	
 /*	dato un vettore di grandezza 100, stampare i valori caricati 
 	precedentemente che sono multipli del numero 2 */
+
 #include <iostream>
 #include <time.h>
 #include <stdlib.h>
 #include <vector>
+#include <math.h>
 
 using namespace std;
 
@@ -18,6 +20,22 @@ int n_rand(int num)
 	return num;
 }
 
+bool potenza2(int num)
+{
+	bool x = false; 
+	
+	for(int i = 0; i < n; i++)
+	{
+		if(pow(2,i) == num) {
+			x = true;
+			break;		
+		}
+	}
+	
+	if(x) return true;
+	else return false;
+}
+
 int main()
 {
 	srand(time(0));
@@ -27,7 +45,7 @@ int main()
 	
 	for(i = 0; i < n; i++) {
 		vett1[i] = n_rand(n_casuale);
-		if((vett1[i] % 2) == 0) 
+		if(potenza2(vett1[i])) 
 			vett2.push_back(vett1[i]);
 	}
 	

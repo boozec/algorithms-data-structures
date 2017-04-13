@@ -7,9 +7,9 @@
  * 8 2
  */
 #include <iostream>
-#include <iostream>
 #include <fstream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -25,13 +25,11 @@ void cOutPresente(vector<int>& kr, int x)
 		kr.push_back(x);
 }
 
-void fCarte(int carte[], int N, int s)
+void fCarte(vector<int> c, int N, int s)
 {
 	int i;
-	vector<int> c;
 	vector<int>::iterator it;
 	vector<int>::iterator start;
-	for(i = 0; i < N; i++) c.push_back(carte[i]);
 	
 	while(c.size() > 1) {
 		//for(it = c.begin(); it != c.end(); it++) cout << *it << ' '; cout << endl;
@@ -56,17 +54,27 @@ int main()
 	int N, i;
 	in >> N;
 	
-	int* carte = new int[N];
+	int x;
+	vector<int> carteV;
 	
-	for(i = 0; i < N; i++) in >> carte[i];
+	for(i = 0; i < N; i++) {
+		in >> x;
+		carteV.push_back(x);
+	}
 	
 	for(int i = 0; i < N; i++) {
-		fCarte(carte, N, i);
+		fCarte(carteV, N, i);
 	}
+	
+	reverse(carteV.begin(), carteV.end());
+	
+	for(int i = 0; i < N; i++) {
+		fCarte(carteV, N, i);
+	}
+	
 	out << carteOut.size() << endl;
 	for(vector<int>::iterator ite = carteOut.begin(); ite != carteOut.end(); ite++) out << *ite << ' ';
-	
-	delete[] carte;
+
 	out.close();
 	in.close();
 	return 0;

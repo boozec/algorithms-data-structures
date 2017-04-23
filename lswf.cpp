@@ -32,10 +32,19 @@ int main()
 	int N, i;
 	in >> N;
 	int caracts[MAXG], somma = 0, potSomma;
-	int lastc = fibonacci(caracts, N);
+	int lastc;
+	if(N > 4)
+		lastc = fibonacci(caracts, N);
+	else {
+		caracts[0] = 1; caracts[1] = 1; caracts[2] = 2; caracts[3] = 3;
+		if(N == 1) lastc = 1;
+		else if(N == 2) lastc = 2;
+		else if(N == 3) lastc = 3;
+		else lastc = 4;
+	}
 	int* seq = new int[lastc];
 	
-	//for(i = 0; i < lastc; i++) cout << caracts[i] << ' '; cout << endl;
+	for(i = 0; i < lastc; i++) cout << caracts[i] << ' '; cout << endl;
 	
 	seq[0] = 1;
 	for(i = lastc; i > 0; i--) {
@@ -45,7 +54,11 @@ int main()
 			seq[i] = 1;
 		} else seq[i] = 0;
 	}
-	for(i = 0; i < lastc; i++) out << seq[i];
+	for(i = 0; i < lastc; i++) { 
+		out << seq[i];
+		cout << seq[i] << ' ';
+	}
+	
 	delete[] seq;
 	in.close();
 	out.close();

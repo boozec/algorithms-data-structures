@@ -1,23 +1,20 @@
 fib = [1, 1]
-lst = 0
 
 
 def fibonacci(N):
-    global lst
     for i in range(2, N):
         fib.append(fib[i - 1] + fib[i - 2])
-        lst = i
+
         if fib[i] > N:
             break
+            
+    return i
 
 
 with open('input.txt', 'r') as fin:
     N = int(fin.readline())
 
-fibonacci(N)
-
-for i in fib:
-   print(i, end=' ')
+lst = fibonacci(N)
 
 fib.reverse()
 print()

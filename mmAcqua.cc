@@ -9,7 +9,7 @@ void giorniSettimana(int a);
 
 int main()
 {
-	float mmAcquaSettimana[7], media;
+	float mmAcquaSettimana[7], media = 0;
 	int i;
 	
 	cout << "INSERIRE QUANTI MM DI PIOGGIA SONO CADUTI IN UNA SETTIMANA (0 E' NULLA)\n" << endl;
@@ -25,7 +25,7 @@ int main()
 	cout << "\n";
 	cout << "I giorni piovosi sono stati: ";
 	for(i = 0; i < 7; i++) {
-		if(mmAcquaSettimana[i] > 0.0) {
+		if(mmAcquaSettimana[i] > 0) {
 			giorniSettimana(i);
 			cout << " - ";
 		}
@@ -39,12 +39,13 @@ int main()
 
 void giorniSettimana(int a)
 {
-	if(a == 0) cout << "Lunedi'";
-	else if(a == 1) cout << "Martedi'";
-	else if(a == 2) cout << "Mercoledi'";
-	else if(a == 3) cout << "Giovedi'";
-	else if(a == 4) cout << "Venerdi'";
-	else if(a == 5) cout << "Sabato";
-	else cout << "Domenica";
-	
+	switch(a) {
+		case 0: cout << "Lunedi'"; break;
+		case 1: cout << "Martedi'"; break;
+		case 2: cout << "Mercoledi'"; break;
+		case 3: cout << "Giovedi'"; break;
+		case 4: cout << "Venerdi'"; break;
+		case 5: cout << "Sabato"; break;
+		default: cout << "Domenica";
+	}	
 }

@@ -44,7 +44,11 @@ int main()
 	}
 	int* seq = new int[lastc];
 	
-	//for(i = 0; i < lastc; i++) cout << caracts[i] << ' '; cout << endl;
+<<<<<<< HEAD
+	for(i = 0; i < lastc; i++) cout << caracts[i] << ' '; cout << endl;
+=======
+	for(i = 0; i < lastc; i++) cout << caracts[i] << endl; cout << endl;
+>>>>>>> devs
 	
 	seq[0] = 1;
 	for(i = lastc; i > 0; i--) {

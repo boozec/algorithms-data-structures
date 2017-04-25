@@ -1,5 +1,6 @@
-fib = [1, 1]
-
+fib = []
+fib.append(1)
+fib.append(1)
 
 def fibonacci(N):
     for i in range(2, N):

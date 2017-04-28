@@ -1,4 +1,4 @@
-class ValoreNegativo(ValueError):
+class ValoreNegativo:
     def __str__(self):
         return 'Il valore non e\' maggiore di 0'
 
@@ -13,8 +13,8 @@ while i < 14:
 
         a.append(num)
         i += 1
-    except ValoreNegativo, e:
-        print(e)
+    except ValoreNegativo:
+        print(ValoreNegativo)
 
 
 diff = i = 0

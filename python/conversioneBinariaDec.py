@@ -1,10 +1,7 @@
 from math import pow
 
 b = 32
-v = []
-
-for i in range(b):
-    v.append(0)
+v = [0 for i in range(b)]
 
 str = input('Stringa: ')
 

@@ -6,7 +6,7 @@ v = []
 for i in range(b):
     v.append(0)
 
-str = raw_input('Stringa: ')
+str = input('Stringa: ')
 
 if len(str) < b:
     valVuoto = len(str)

@@ -21,8 +21,11 @@ def converti(lettera):
     else:
         nuovaParola.append(lettera)
 
+parole = ''
+
 with open('input.txt', 'r') as fin:
-    parole = fin.read(999999)
+    for line in fin.readlines():
+        parole += line
 
 
 for i in parole:

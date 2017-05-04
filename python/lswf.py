@@ -8,7 +8,6 @@ def fibonacci(N):
 
         if fib[i] > N:
             break
-            
     return i
 
 

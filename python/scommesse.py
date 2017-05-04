@@ -4,8 +4,8 @@ carteOut = []
 
 def cOutPresente(x):
     s = False
-    for i in range(len(carteOut)):
-        if (carteOut[i] == x):
+    for i in carteOut:
+        if i == x:
             s = True
 
     if not s:

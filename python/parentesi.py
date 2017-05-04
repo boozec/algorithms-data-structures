@@ -12,21 +12,21 @@ t = q = g = 0
 tot = 0
 
 
-for i in range(len(stringa)):
-    if stringa[i] == '(':
+for i in stringa:
+    if i == '(':
         t += 1
-    elif stringa[i] == '[':
+    elif i == '[':
         q += 1
-    elif stringa[i] == '{':
+    elif i == '{':
         g += 1
 
-    if stringa[i] == ')' and t > 0:
+    if i == ')' and t > 0:
         t -= 1
         tot += 1
-    elif stringa[i] == ']' and q > 0:
+    elif i == ']' and q > 0:
         q -= 1
         tot += 1
-    elif stringa[i] == '}' and g > 0:
+    elif i == '}' and g > 0:
         g -= 1
         tot += 1
 

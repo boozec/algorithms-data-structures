@@ -1,6 +1,6 @@
 class punteggioGiocatori:
-    def __init__(self, id, punteggio):
-        self.id = id
+    def __init__(self, idGiocatore, punteggio):
+        self.idGiocatore = idGiocatore
         self.punteggio = punteggio
 
 
@@ -18,12 +18,12 @@ with open('input.txt', 'r') as fin:
         rID = -1
 
         for j in range(N):
-            if players[j].id == futID:
+            if players[j].idGiocatore == futID:
                 rID = j
                 break
 
         if rID == -1:
-            players[last].id = futID
+            players[last].idGiocatore = futID
             players[last].punteggio = futPunteggio
             last += 1
 
@@ -38,13 +38,13 @@ while(s):
 
     for k in range(last):
         if players[k].punteggio < players[k+1].punteggio:
-            t[0] = players[k].id
+            t[0] = players[k].idGiocatore
             t[1] = players[k].punteggio
 
-            players[k].id = players[k + 1].id
+            players[k].idGiocatore = players[k + 1].idGiocatore
             players[k].punteggio = players[k + 1].punteggio
 
-            players[k + 1].id = t[0]
+            players[k + 1].idGiocatore = t[0]
             players[k + 1].punteggio = t[1]
 
             s = True
@@ -53,4 +53,4 @@ while(s):
 
 
 with open('output.txt', 'w') as fout:
-    fout.write(str(players[0].id) + ' ' + str(players[0].punteggio))
+    fout.write(str(players[0].idGiocatore) + ' ' + str(players[0].punteggio))

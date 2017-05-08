@@ -19,9 +19,9 @@ int main()
 {
 	carica();
 	
-	for(int i = 0; i < N; i++) {
-		if(!utili(pV[i]))
-			cout << "Attenzione" << endl;
+	for(auto i : pV) {
+		if(!utili(i))
+			cout << "Attenzione -> " << i.citta << endl;
 	}
 	
 	ord();
@@ -92,10 +92,3 @@ void visualizza()
 		cout << i.entrate << endl;
 	}
 }
-		
-		
-		
-		
-		
-		
-	

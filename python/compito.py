@@ -44,7 +44,7 @@ def ord():
                 pV[i+1].citta = t.citta;
                 pV[i+1].entrate = t.entrate;
                 pV[i+1].uscite = t.uscite;
-				
+
                 s = True;
 		
         last -= 1
@@ -69,6 +69,3 @@ ord()
 
 for i in pV:
     print(i.entrate)
-
-	
-

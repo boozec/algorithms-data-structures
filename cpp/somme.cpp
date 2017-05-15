@@ -6,22 +6,16 @@ output: 1
 #include <iostream>
 #include <fstream>
 
-bool pari(int n)
-{
-	return ((n % 2) == 0) ? true : false;
-}
+bool pari(int n) { return ((n % 2) == 0) ? true : false; }
 
 int sequenza(int n, bool pollatz, int tCollatz = -1)
 {
-	int m;
+	int m, tot = 1;
 	
 	if(pollatz)
 		m = 5;
 	else
 		m = 3;
-	
-	int tot = 1;
-	
 
 	while(n != 1) {		
 		if(pari(n))
@@ -29,12 +23,10 @@ int sequenza(int n, bool pollatz, int tCollatz = -1)
 		else
 			n = n*m+1;
 		
-		
 		tot++;
 		
 		if(tCollatz != -1 && tot > tCollatz)
 			break;
-		
 	}
 	
 	return tot;

@@ -3,7 +3,9 @@ class puntiVedita:
         citta = ''
         entrate = uscite = 0
 
+	
 pV = [puntiVedita() for i in range(5)]
+
 
 def carica():
     pV[0].citta = "Catania";
@@ -23,7 +25,7 @@ def carica():
     pV[4].uscite = 175;
 	
 	
-def ord():
+def ordx():
     s = True
     t = puntiVedita()
     last = 4
@@ -65,7 +67,7 @@ for i in pV:
     if not util(i):
         print("Attenzione -> {}".format(i.citta))
 
-ord()
+ordx()
 
 for i in pV:
     print(i.entrate)

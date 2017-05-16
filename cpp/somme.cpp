@@ -8,12 +8,7 @@ output: 1
 
 int sequenza(int n, bool pollatz, int tCollatz = -1)
 {
-	int m, tot = 1;
-	
-	if(pollatz)
-		m = 5;
-	else
-		m = 3;
+	int m = ((pollatz) ? 5 : 3), tot = 1;
 	
 	auto pari = [] (int n) {
 		return ((n % 2) == 0) ? true : false;
@@ -21,10 +16,7 @@ int sequenza(int n, bool pollatz, int tCollatz = -1)
 		
 
 	while(n != 1) {		
-		if(pari(n))
-			n /= 2;
-		else
-			n = n*m+1;
+		n = (pari(n)) ? n/2 : n*m+1;
 		
 		tot++;
 		

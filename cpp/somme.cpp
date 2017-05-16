@@ -6,8 +6,6 @@ output: 1
 #include <iostream>
 #include <fstream>
 
-bool pari(int n) { return ((n % 2) == 0) ? true : false; }
-
 int sequenza(int n, bool pollatz, int tCollatz = -1)
 {
 	int m, tot = 1;
@@ -16,6 +14,11 @@ int sequenza(int n, bool pollatz, int tCollatz = -1)
 		m = 5;
 	else
 		m = 3;
+	
+	auto pari = [] (int n) {
+		return ((n % 2) == 0) ? true : false;
+	};
+		
 
 	while(n != 1) {		
 		if(pari(n))

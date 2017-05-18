@@ -9,6 +9,20 @@
 #include <list>
 #define MAXG 1000001
 
+int fibonacci(int* fib, int N)
+{
+	fib[0] = 1; fib[1] = 1;
+	int lst;
+
+	for(int i = 2; i < N; i++) {
+		fib[i] = fib[i-1] + fib[i-2];
+		lst = i;
+		if(fib[i] > N) break;
+	}
+
+	return lst;
+}
+
 int main()
 {
 	std::ifstream in("input.txt");
@@ -21,24 +35,8 @@ int main()
 	int caracts[MAXG], somma = 0, potSomma;
 	int lastc;
 
-	auto fibonacci = [&caracts] (int N) {
-		caracts[0] = 1; caracts[1] = 1;
-
-		int lst;
-
-		for(int i = 2; i < N; i++) {
-			caracts[i] = caracts[i-1] + caracts[i-2];
-			lst = i;
-
-			if(caracts[i] > N)
-				break;
-		}
-
-		return lst;
-	};
-
 	if(N > 4)
-		lastc = fibonacci(N);
+		lastc = fibonacci(caracts, N);
 	else {
 		caracts[0] = 1;
 		for(i = 1; i < 4; i++)

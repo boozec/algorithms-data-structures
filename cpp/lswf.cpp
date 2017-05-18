@@ -1,60 +1,74 @@
-/* INPUT: 
+/* INPUT:
  * 19
- * 
+ *
  * OUTPUT:
  * 1000101
  */
 #include <iostream>
 #include <fstream>
-#define MAXG 1000
-
-using namespace std;
-
-int fibonacci(int* fib, int N) 
-{
-	fib[0] = 1; fib[1] = 1;
-	int lst;
-	
-	for(int i = 2; i < N; i++) {
-		fib[i] = fib[i-1] + fib[i-2];
-		lst = i;
-		if(fib[i] > N) break;
-	}
-	
-	return lst;
-}
+#include <list>
+#define MAXG 1000001
 
 int main()
 {
-	ifstream in("input.txt");
-	ofstream out("output.txt");
-	
+	std::ifstream in("input.txt");
+	std::ofstream out("output.txt");
+	std::list<int> seq;
+	std::list<int>::iterator j;
+
 	int N, i;
 	in >> N;
 	int caracts[MAXG], somma = 0, potSomma;
 	int lastc;
+
+	auto fibonacci = [&caracts] (int N) {
+		caracts[0] = 1; caracts[1] = 1;
+
+		int lst;
+
+		for(int i = 2; i < N; i++) {
+			caracts[i] = caracts[i-1] + caracts[i-2];
+			lst = i;
+
+			if(caracts[i] > N)
+				break;
+		}
+
+		return lst;
+	};
+
 	if(N > 4)
-		lastc = fibonacci(caracts, N);
+		lastc = fibonacci(N);
 	else {
-		caracts[0] = 1; caracts[1] = 1; caracts[2] = 2; caracts[3] = 3;
-		if(N == 1) lastc = 1;
-		else if(N == 2) lastc = 2;
-		else if(N == 3) lastc = 3;
-		else lastc = 4;
+		caracts[0] = 1;
+		for(i = 1; i < 4; i++)
+			caracts[i] = i;
+
+		switch (N) {
+			case 1:
+				lastc = 1;
+				break;
+			case 2:
+				lastc = 2;
+				break;
+			case 3:
+				lastc = 3;
+				break;
+			default:
+				lastc = 4;
+		}
 	}
-	int* seq = new int[lastc];
-	
-	seq[0] = 1;
+
 	for(i = lastc; i > 0; i--) {
 		potSomma = somma + caracts[i];
 		if(potSomma < N) {
 			somma = potSomma;
-			seq[i] = 1;
-		} else seq[i] = 0;
+			seq.push_front(1);
+		} else seq.push_front(0);
 	}
-	for(i = 0; i < lastc; i++) out << seq[i];
-	
-	delete[] seq;
+	seq.push_front(1);
+	for(j = seq.begin(); j != seq.end(); j++) out << *j;
+
 	in.close();
 	out.close();
 	return 0;

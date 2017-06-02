@@ -1,2 +1,5 @@
 all:
-	g++-4.8 -Wall -std=c++11 -o $1 $1.cpp
+	g++ -Wall -std=c++11 -o $1 $1.cpp
+
+test:
+	./$1 || exit 1

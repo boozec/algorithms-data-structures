@@ -1,8 +1,8 @@
 consonantiMax = [
     'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Z', 'B']
-consonantiMin = [consonantiMax[i].lower() for i in range(len(consonantiMax))]  # consonanti minuscole
+consonantiMin = [i.lower() for i in consonantiMax]  # consonanti minuscole
 vocaliMax = ['A', 'E', 'I', 'O', 'U', 'Y', 'A']
-vocaliMin = [vocaliMax[i].lower() for i in range(len(vocaliMax))]
+vocaliMin = [i.lower() for i in vocaliMax]
 numeriList = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
 
 nuovaParola = []

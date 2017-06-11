@@ -16,7 +16,7 @@ File.open('input.txt', 'r') do |fin|
   N = fin.gets.to_i
 end
 
-lst = fibonacci(N, fib)
+fibonacci(N, fib)
 
 fib = fib.reverse
 

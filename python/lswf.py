@@ -14,7 +14,7 @@ def fibonacci(N):
 with open('input.txt', 'r') as fin:
     N = int(fin.readline())
 
-lst = fibonacci(N)
+fibonacci(N)
 
 fib.reverse()
 print()

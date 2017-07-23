@@ -1,6 +1,9 @@
-UTPUT:
- * 1000101
- */
+/* INPUT:
+* 19		
+*		
+* OUTPUT:		
+* 1000101
+*/
 #include <iostream>
 #include <fstream>
 #include <list>

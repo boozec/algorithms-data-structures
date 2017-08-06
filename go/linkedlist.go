@@ -7,19 +7,7 @@ type node struct {
 	next *node
 }
 
-func main() {
-	lista := new(node)
-	lista.next = nil
-
-	lista.carica(5)
-
-	for lista != nil {
-		fmt.Printf("%d ",lista.v)
-		lista = lista.next
-	}
-}
-
-func (head *node) carica(N int) {
+func (head *node) load(N int) {
 	if N < 1 {
 		return
 	}
@@ -31,4 +19,27 @@ func (head *node) carica(N int) {
 	}
 	fmt.Scanf("%d", &head.v)
 	head.next = nil
+}
+
+func (head *node) pushTail(val int) {
+	for head.next != nil {
+		head = head.next
+	}
+
+	head.next = new(node)
+	head = head.next
+	head.v = val
+	head.next = nil
+}
+
+func main() {
+	lista := new(node)
+	lista.next = nil
+
+	lista.load(5)
+	lista.pushTail(32)
+	for lista != nil {
+		fmt.Printf("%d ",lista.v)
+		lista = lista.next
+	}
 }

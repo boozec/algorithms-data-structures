@@ -7,49 +7,82 @@ type node struct {
 	next *node
 }
 
-func (head *node) load(N int) {
-	if N < 1 {
-		return
-	}
+var head *node = nil
 
-	for i := 0; i < N-1; i++ {
-		fmt.Scanf("%d", &head.v)
-		head.next = new(node)
-		head = head.next
+func (l *node) pushH(val int) *node {
+	if head == nil {
+		l.v = val
+		l.next = nil
+		head = l
+		return l
+	} else {
+		nnode := new(node)
+		nnode = head
+
+		nnode2 := &node {
+			v: val,
+			next: nnode,
+		}
+		head = nnode2
+		return head
 	}
-	fmt.Scanf("%d", &head.v)
-	head.next = nil
 }
 
-func (head *node) pushTail(val int) {
-	for head.next != nil {
-		head = head.next
-	}
+func (l *node) pushT(val int) *node {
+	if head == nil {
+		l.v = val
+		l.next = nil
+		head = l
+		return l
+	} else {
+		for l.next != nil {
+			l = l.next
+		}
 
-	head.next = new(node)
-	head = head.next
-	head.v = val
-	head.next = nil
+		l.next = new(node)
+		l.next.v = val
+		l.next.next = nil
+		return l
+	}
 }
 
-func (head *node) pushHead(val int) {
-	cpnode := &node{
-		v: head.v,
-		next: head.next,
+func (l *node) popH() *node {
+	if head == nil {
+		return head
 	}
-	head.v = val
-	head.next = cpnode
+
+	cpnode := new(node)
+	cpnode = head.next
+	head = cpnode
+
+	return head
+}
+
+func (l *node) popT() *node {
+	if head == nil {
+		return head
+	}
+
+	cpnode := new(node)
+	cpnode = head
+
+	for cpnode.next.next != nil {
+		cpnode = cpnode.next
+	}
+
+	cpnode.next = nil
+	return head
 }
 
 func main() {
 	lista := new(node)
-	lista.next = nil
-
-	lista.load(5)
-	lista.pushTail(32)
-	lista.pushHead(24)
-	for lista != nil {
-		fmt.Printf("%d ",lista.v)
-		lista = lista.next
+	lista.pushT(25).pushT(24).pushT(32)
+	lista.pushT(56)
+	lista.pushH(36)
+	lista.popH()
+	lista.popT()
+	for head != nil {
+		fmt.Printf("%d ",head.v)
+		head = head.next
 	}
 }

@@ -16,7 +16,7 @@ int dijkstra(int src, int dest) {
 	priority_queue<pii, vector<pii>, greater<pii> > pq;
 	
 	vector<int> dist(INF, INF);
-  previous.resize(V);
+	previous.resize(V);
 	pq.push(make_pair(0, src));
 	dist[src] = 0;
 	while(!pq.empty()) {

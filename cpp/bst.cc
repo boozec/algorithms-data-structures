@@ -34,25 +34,25 @@ private:
 	}
 
 	Node* remove(Node* root, int data) {
-		if(root->data > data) root->left = remove(root->left, data);
+		if(root == nullptr) return root;
+		else if(root->data > data) root->left = remove(root->left, data);
 		else if(root->data < data) root->right = remove(root->right, data);
 		else {
+			Node* tmp = root;
 			if(root->right == nullptr && root->left == nullptr) {
 				delete root;
 				root = nullptr;
 			} else if(root->right == nullptr) {
-				Node* tmp = root->left;
-				delete root;
-				return tmp;
+				root = root->left;
+				delete tmp;
 			} else if(root->left == nullptr) {
-				Node* tmp = root->right;
-				delete root;
-				return tmp;
+				root = root->right;
+				delete tmp;
+			} else {
+				tmp = min(root->right);
+				root->data = tmp->data;
+				root->right = remove(root->right, tmp->data);
 			}
-			
-			Node* tmp = min(root->right);
-			root->data = tmp->data;
-			root->right = remove(root->right, tmp->data);
 		}
 		
 		return root;
@@ -88,8 +88,8 @@ public:
 
 int main() {
 	BST* bst = new BST();
-	
-	for(int i = 0; i < 9; i++) {
+	int n; cin >> n;
+	for(int i = 0; i < n; i++) {
 		int zz;
 		std::cin >> zz;
 		bst->add(zz);
